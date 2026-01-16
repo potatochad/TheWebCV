@@ -26,10 +26,17 @@ jobs:
           chmod +x ./gradlew
           ./gradlew jsBrowserProductionWebpack
 
+      - name: Debug build output
+        run: |
+          echo "=== composeApp/build ==="
+          ls -R composeApp/build || true
+
+      
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: composeApp/build/distributions
+          path: composeApp/build/dist/wasmJs/productionExecutable
 
   deploy:
     needs: build
