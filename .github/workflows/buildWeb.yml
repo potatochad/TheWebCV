@@ -22,7 +22,9 @@ jobs:
           java-version: 17
 
       - name: Build Web
-        run: ./gradlew jsBrowserProductionWebpack
+        run: |
+          chmod +x ./gradlew
+          ./gradlew jsBrowserProductionWebpack
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
